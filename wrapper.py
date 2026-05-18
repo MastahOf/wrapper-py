@@ -130,7 +130,7 @@ def main():
         creating_pattern(args.pattern)
     elif args.find:
         find_pattern(args.find)
-    else:
+    elif args.check:
         checking_files(args.check)
 
 if __name__ == "__main__":
