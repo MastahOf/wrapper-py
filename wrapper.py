@@ -16,6 +16,7 @@ def checking_files(path_files):
         elf = ELF(path_files, checksec=False)
     except Exception as e:
         print(f"Failed to process the {path_files} file because {e}")
+        return
     
     print(f"The summary of the file")
 
