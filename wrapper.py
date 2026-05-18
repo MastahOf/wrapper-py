@@ -20,58 +20,49 @@ def checking_files(path_files):
     
     print(f"The summary of the file")
 
-    execstack = elf.execstack
-    fortify = elf.fortify
-    nx = elf.nx
-    canaries = elf.canary
-    system_opetation = elf.os
-    relro = elf.relro
-    pie = elf.pie
-    rpath = elf.rpath
-    runpath = elf.runpath
-    if execstack == True:
-        print("[-] Eexcstack: " + Fore.LIGHTGREEN_EX + f"{execstack}")
+    if elf.execstack:
+        print(f"[-] Eexcstack: {Fore.LIGHTGREEN_EX + str(elf.execstack)}")
     else:
-        print("[-] Execstack: " + Fore.LIGHTRED_EX + f"{execstack}")
+        print(f"[-] Execstack: {Fore.LIGHTRED_EX + str(elf.execstack)}")
     
-    if fortify == True:
-        print("[-] Fortify: " + Fore.LIGHTGREEN_EX + f"{fortify}")
+    if elf.fortify:
+        print(f"[-] Fortify: {Fore.LIGHTGREEN_EX + str(elf.fortify)}")
     else:
-        print("[-] Fortify: " + Fore.LIGHTRED_EX + f"{fortify}")
+        print(f"[-] Fortify: {Fore.LIGHTRED_EX + str(elf.fortify)}")
     
-    if nx == True:
-        print("[-] NX: " + Fore.LIGHTGREEN_EX + f"{nx}")
+    if elf.nx:
+        print(f"[-] NX: {Fore.LIGHTGREEN_EX + str(elf.nx)}")
     else:
-        print("[-] NX: " + Fore.LIGHTRED_EX + f"{nx}")
+        print(f"[-] NX: {Fore.LIGHTRED_EX + str(elf.nx)}")
     
-    if canaries == True:
-        print("[-] Canary: " + Fore.LIGHTGREEN_EX + f"{canaries}")
+    if elf.cannary:
+        print(f"[-] Canary: {Fore.LIGHTGREEN_EX + str(elf.canary)}")
     else:
-        print("[-] Canary: " + Fore.LIGHTRED_EX + f"{canaries}")
+        print(f"[-] Canary: {Fore.LIGHTRED_EX + str(elf.canary)}")
 
-    if relro == "Full":
-        print('[-] Relro:  ' + Fore.LIGHTGREEN_EX + f"{relro}")
-    elif relro == "Partial":
-        print("[-] Relro: " + Fore.LIGHTYELLOW_EX + f"{relro}")
-    elif relro == "None":
-        print("[-] Relro:" + Fore.LIGHTRED_EX + f"{relro}")
+    if elf.relro == "Full":
+        print(f"[-] Relro: {Fore.LIGHTGREEN_EX + elf.relro}")
+    elif elf.relro == "Partial":
+        print(f"[-] Relro: {Fore.LIGHTYELLOW_EX + elf.relro}")
+    elif elf.relro == "None":
+        print(f"[-] Relro: {Fore.LIGHTRED_EX + elf.relro}")
 
-    print(f"[-] OS: " + Fore.LIGHTYELLOW_EX + f"{system_opetation}")
+    print(f"[-] OS: {Fore.LIGHTYELLOW_EX  + elf.os}")
     
-    if pie == True:
-        print("[-] PIE: " + Fore.LIGHTGREEN_EX + f"{pie}")
+    if elf.pie:
+        print(f"[-] PIE: {Fore.LIGHTGREEN_EX + str(elf.pie)}")
     else:
-        print("[-] PIE: " + Fore.LIGHTRED_EX + f"{pie}")
+        print(f"[-] PIE: " + Fore.LIGHTRED_EX + f"{Fore.LIGHTRED_EX + str(elf.pie)}")
 
-    if rpath == None:
-        print("[-] RPATH: " + Fore.LIGHTRED_EX + f"{rpath}")
+    if elf.rpath == None:
+        print(f"[-] RPATH: {Fore.LIGHTRED_EX + str(elf.rpath)}")
     else:
-        print("[-] RPATH: " + Fore.LIGHTGREEN_EX + f"{rpath}")
+        print(f"[-] RPATH: {Fore.LIGHTGREEN_EX + str(elf.rpath)}")
     
-    if runpath == None:
-        print("[-] RUNPATH: " + Fore.LIGHTRED_EX + f"{runpath}")
+    if elf.runpath == None:
+        print(f"[-] RUNPATH: {Fore.LIGHTRED_EX + str(elf.runpath)}")
     else:
-        print("[-] RUNPATH: " + Fore.LIGHTGREEN_EX + f"{runpath}")
+        print(f"[-] RUNPATH: {Fore.LIGHTGREEN_EX + str(elf.runpath)}")
 
 def creating_exploit(path_files):
     elf = ELF(path_files, checksec=False)
@@ -110,7 +101,7 @@ io = process("{path_files}")
     print(f"[+] Succed to create the exploit file")
 
 def creating_pattern(how_long):
-    print(str(cyclic(how_long)))
+    print(cyclic(how_long))
 
 def find_pattern(pattern):
     print(cyclic_find(pattern))
