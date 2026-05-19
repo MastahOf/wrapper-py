@@ -52,7 +52,7 @@ def checking_files(path_files):
     if elf.pie:
         print(f"[-] PIE: {Fore.LIGHTGREEN_EX + str(elf.pie)}")
     else:
-        print(f"[-] PIE: " + Fore.LIGHTRED_EX + f"{Fore.LIGHTRED_EX + str(elf.pie)}")
+        print(f"[-] PIE: {Fore.LIGHTRED_EX + str(elf.pie)}")
 
     if elf.rpath == None:
         print(f"[-] RPATH: {Fore.LIGHTRED_EX + str(elf.rpath)}")
