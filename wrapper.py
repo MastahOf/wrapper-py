@@ -36,7 +36,7 @@ def checking_files(path_files):
     else:
         print(f"[-] NX: {Fore.LIGHTRED_EX + str(elf.nx)}")
     
-    if elf.cannary:
+    if elf.canary:
         print(f"[-] Canary: {Fore.LIGHTGREEN_EX + str(elf.canary)}")
     else:
         print(f"[-] Canary: {Fore.LIGHTRED_EX + str(elf.canary)}")
